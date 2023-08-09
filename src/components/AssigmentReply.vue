@@ -1,16 +1,20 @@
 <template>
-  <div class="flex items-start p-4 pt-0 pr-8">
+  <div class="flex items-start p-4 pr-8 pt-0">
     <img
-      class="block h-10 w-10 rounded-full object-cover flex-shrink-0"
-      :src="props.curReply.imgUrl"
+      class="block h-10 w-10 flex-shrink-0 rounded-full object-cover"
+      :src="getImageUrl(props.curReply.imgUrl)"
       :alt="props.curReply.name"
     />
     <div class="pl-2">
       <div class="flex items-center justify-between">
         <p class="mb-1 font-bold">{{ props.curReply.name }}</p>
         <div class="space-x-6">
-          <button type="button"><span class="material-icons"> star_outline</span></button>
-          <button type="button"><span class="material-icons"> edit</span></button>
+          <button type="button">
+            <span class="material-icons"> star_outline</span>
+          </button>
+          <button type="button">
+            <span class="material-icons"> edit</span>
+          </button>
         </div>
       </div>
 
@@ -23,11 +27,18 @@
 </template>
 
 <script setup>
+import { toRefs } from 'vue'
+
 const props = defineProps({
   curReply: {
     type: Object,
-    default: () => ({})
-  }
-})
+    default: () => ({}),
+  },
+  getImageUrl: {
+    type: Function,
+    default: () => {},
+  },
+});
 
+const { getImageUrl } = toRefs(props);
 </script>

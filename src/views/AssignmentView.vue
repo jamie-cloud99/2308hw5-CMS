@@ -72,7 +72,7 @@
               <div class="flex items-start p-4 pr-8">
                 <img
                   class="block h-10 w-10 rounded-full object-cover flex-shrink-0"
-                  :src="curAssignment.imgUrl"
+                  :src="getImageUrl(curAssignment.imgUrl) "
                   :alt="curAssignment.name"
                 />
                 <div class="pl-2">
@@ -94,7 +94,7 @@
                   <hr class="border-gray-400" />
                 </div>
               </div>
-              <AssigmentReply v-if="!isEditting" :cur-reply="curReply" />
+              <AssigmentReply v-if="!isEditting" :cur-reply="curReply" :get-image-url="getImageUrl"/>
               <AssignmentReplyEditor v-else @toggle="toggleEditor"/>
             </div>
           </div>
@@ -163,7 +163,7 @@ const curAssignment = reactive({
   id: 1,
   assignment: "Chapter Assignment 2 / HTML&CSS",
   title: "Please check this file for me, thanks!",
-  imgUrl: "/images/emilywang.jpeg",
+  imgUrl: "emilywang.jpeg",
   name: "Emily Wang",
   time: "10:38 AM (4 hours ago)",
   message:
@@ -173,7 +173,7 @@ const curAssignment = reactive({
 
 const curReply = reactive({
   postId: 1,
-  imgUrl: "/images/andychen.jpeg",
+  imgUrl: "andychen.jpeg",
   name: "Andy Chen (You)",
   time: "13:24 AM (1 hours ago)",
   message:
@@ -185,4 +185,9 @@ const isEditting = ref(false)
 const toggleEditor = () => {
   isEditting.value = !isEditting.value
 }
+
+const getImageUrl = (path) => {
+  return new URL(`../assets/images/${path}`, import.meta.url).href;
+};
+
 </script>
