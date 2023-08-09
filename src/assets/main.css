@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply font-Loto text-gray-900 text-base
+  }
+}
+
+
+@layer components {
+  .scrollbar-hidden::-webkit-scrollbar {
+    @apply w-0 hidden
+  }
+
+  .menu-before {
+    @apply absolute -left-8 top-1/2 -translate-y-1/2 h-8 w-1 bg-success content-[''];
+  }
+
+  .btn {
+    @apply px-8 py-2 font-bold rounded-sm transition-all duration-500;
+  }
+
+  .btn:hover {
+    @apply hover:shadow-sm hover:shadow-neutral-600;
+  }
+}
