@@ -1,17 +1,18 @@
 <template>
-  <div class="fixed flex min-h-screen h-full min-w-[296px] flex-col justify-between bg-gray-100 p-8">
+  <div class="fixed flex min-h-screen h-full min-w-[296px] flex-col justify-between bg-gray-100 py-8">
     <div>
-      <h1 class="mb-8">
+      <h1 class="mb-6 pl-8">
         <img src="/images/logo-ANSWER.svg" alt="logo" /><a href="/"></a>
       </h1>
-      <ul class="space-y-6">
+      <ul class="space-y-2">
         <li
           v-for="item in menuList"
           :key="item.text"
-          class="relative font-bold hover:text-gray-600"
+          class="relative font-bold py-2 px-8 "
           :class="{
             'before:menu-before': props.curPageName === item.text,
             'text-success': props.curPageName === item.text,
+            'hover:bg-gray-400': props.curPageName !== item.text
           }"
           @click="changePage(item.text)"
         >
@@ -24,7 +25,7 @@
         </li>
       </ul>
     </div>
-    <div class="flex items-center">
+    <div class="flex items-center pl-8">
       <img
         class="mr-4 h-10 w-10 rounded-full object-cover"
         src="/images/andychen.jpeg"
@@ -85,8 +86,6 @@ const menuList = reactive([
 const changePage = (item) => {
   emits('change-view', item)
 }
-
-
 
 
 </script>

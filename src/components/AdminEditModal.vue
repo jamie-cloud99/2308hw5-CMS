@@ -2,7 +2,7 @@
   <div
     ref="modal"
     data-te-modal-init
-    class="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[1055] hidden overflow-hidden"
+    class="fixed left-1/2 top-1/2 z-[1055] hidden -translate-x-1/2 -translate-y-1/2 overflow-hidden"
     id="Modal"
     tabindex="-1"
     aria-labelledby="ModalLabel"
@@ -10,7 +10,7 @@
   >
     <div
       data-te-modal-dialog-ref
-      class="scrollbar-hidden  max-h-[500px] w-[480px] overflow-y-auto rounded-sm opacity-0 transition-all duration-300 ease-in-out"
+      class="scrollbar-hidden overflow-auto max-h-[736px] w-[480px] rounded-sm opacity-0 transition-all duration-300 ease-in-out"
     >
       <div class="rounded-sm bg-white px-8 shadow-lg">
         <!--Modal header-->
@@ -30,7 +30,7 @@
         </div>
 
         <!--Modal body-->
-        <div class="pb-6" data-te-modal-body-ref>
+        <div class="overflow-y-auto scrollbar-hidden  max-h-[350px] pb-2" data-te-modal-body-ref>
           <h5 class="mb-4 text-xl font-bold">Account</h5>
           <div class="mb-4">
             <label for="name" class="mb-1 text-sm">Name</label>
@@ -177,17 +177,17 @@
               <span class="material-icons mr-2 align-bottom"> warning </span
               >This cannot be undone!
             </p>
-             <button
-                type="button"
-                class="btn block w-full border  border-danger py-4 text-danger hover:bg-danger hover:text-white"
-              >
-                Send Verification Mail
-              </button>
+            <button
+              type="button"
+              class="btn block w-full border border-danger py-4 text-danger hover:bg-danger hover:text-white"
+            >
+              Deactivate This Account
+            </button>
           </div>
         </div>
 
         <!--Modal footer-->
-        <div class="flex items-center justify-end gap-x-4 pb-4">
+        <div class="flex items-center justify-end gap-x-4 py-4">
           <button
             @click="closeModal"
             type="button"
@@ -198,7 +198,8 @@
           >
             Cancel
           </button>
-          <button v-if="accountNew"
+          <button
+            v-if="accountNew"
             type="button"
             class="btn block bg-success text-white hover:bg-success-800"
             data-te-ripple-init
@@ -206,7 +207,8 @@
           >
             Add
           </button>
-          <button v-else
+          <button
+            v-else
             type="button"
             class="btn block bg-success text-white hover:bg-success-800"
             data-te-ripple-init

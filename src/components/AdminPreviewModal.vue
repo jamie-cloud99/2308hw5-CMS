@@ -80,9 +80,8 @@
 </template>
 
 <script setup>
-import { onMounted } from "vue";
 import { Modal, initTE } from "tw-elements";
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 
 const modal = ref(null);
 const adminModal = ref(null);

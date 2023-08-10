@@ -81,7 +81,8 @@
                     {{ curAssignment.time }}
                   </p>
                   <p class="mb-4 text-sm" v-html="curAssignment.message"></p>
-                  <div
+                  <a href="#"
+                    :download="curAssignment.file"
                     class="mb-4 inline-block border border-gray-400 bg-gray-100 rounded-sm px-3 py-2 pr-4"
                   >
                     <span class="material-icons mr-2 align-bottom">
@@ -90,7 +91,7 @@
                     <span class="font-bold leading-6">{{
                       curAssignment.file
                     }}</span>
-                  </div>
+                  </a>
                   <hr class="border-gray-400" />
                 </div>
               </div>
@@ -167,7 +168,7 @@ const curAssignment = reactive({
   name: "Emily Wang",
   time: "10:38 AM (4 hours ago)",
   message:
-    "Hi Teacher, the attached file is my homework of chapter 2. And here comes a question: Why in the following code the height of the <span class='text-success bg-gray-100 rounded-sm px-1 py-0.5'>div</span> is bigger than the height of the <span class='text-success bg-gray-100 rounded-sm px-1 py-0.5'>img</span> ? There is a gap below the image, but it doesn’t seems to be a padding/margin.<br/> What is the gap or extra space below image?",
+    "Hi Teacher, the attached file is my homework of chapter 2. And here comes a question: Why in the following code the height of the <code class='text-success font-RobotoMono bg-gray-100 rounded-sm px-1 py-0.5'>div</code> is bigger than the height of the <code class='text-success font-RobotoMono bg-gray-100 rounded-sm px-1 py-0.5 '>img</code> ? There is a gap below the image, but it doesn’t seems to be a padding/margin.<br/> What is the gap or extra space below image?",
   file: "HW-2-David.zip",
 });
 
@@ -177,7 +178,7 @@ const curReply = reactive({
   name: "Andy Chen (You)",
   time: "13:24 AM (1 hours ago)",
   message:
-    "Hi David, by default, an image is rendered inline, like a letter so it sits on the same line that a, b, c and d sit on. There is space below that line for the descenders you find on letters like g, j, p and q. <br/> <br/> You can: <br/> <br/> <ul class='list-disc pl-8'><li>adjust the  <span class='text-success bg-gray-100 rounded-sm px-1 py-0.5'>vertical-align</span> of the image to position it elsewhere (e.g. <span class='text-success bg-gray-100 rounded-sm px-1 py-0.5'>middle</span> ) or</li class><li>change the <span class='text-success bg-gray-100 rounded-sm px-1 py-0.5'>display</span> so it isn’t inline.</li></ul>",
+    "Hi David, by default, an image is rendered inline, like a letter so it sits on the same line that a, b, c and d sit on. There is space below that line for the descenders you find on letters like g, j, p and q. <br/> <br/> You can: <br/> <br/> <ul class='list-disc pl-8'><li>adjust the  <code class='text-success font-RobotoMono bg-gray-100 rounded-sm px-1 py-0.5'>vertical-align</code> of the image to position it elsewhere (e.g. <code class='text-success font-RobotoMono bg-gray-100 rounded-sm px-1 py-0.5'>middle</code> ) or</li class><li>change the <code class='text-success font-RobotoMono bg-gray-100 rounded-sm px-1 py-0.5'>display</code> so it isn’t inline.</li></ul>",
 });
 
 const isEditting = ref(false)
